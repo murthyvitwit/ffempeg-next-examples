@@ -214,13 +214,15 @@ fn trim_video(input_path: &str, output_path: &str, start_time: f64, duration: f6
 
 fn main()-> Result<()>  {
     let input_path = "assets/sample_video2.mp4";
-    let output_path = "assets/outputs/trim_video.mp4";
+    let output_path1 = "assets/outputs/trim_video.mp4";
+    let output_path2 = "assets/outputs/copied_video.mp4";
+
     let start_time = 0.0; // Start time in seconds
     let duration = 10.0; // Duration in seconds
 
-    trim_video(input_path, output_path, start_time, duration)?;
+    trim_video(input_path, &output_path1, start_time, duration)?;
     let _ = codec_info(input_path.to_string());
-    let _ = copy_video(input_path, output_path);
+    let _ = copy_video(input_path, output_path2);
 
     Ok(())
 }
